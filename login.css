@@ -1,0 +1,120 @@
+:root {
+    --base-color: white;
+    --text-color: black;
+    --input--color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-align: center
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(assets/pexels-moklebust-38832804.jpg);
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  background-color: white;
+  height: 100dvh;
+  width: max(40%, 600px);
+  padding: 10px;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+}
+
+form {
+    width: min(400px, 100%);
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+form > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form label {
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border: none
+}
+
+form input {
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1rem;
+    border-radius: 0 10px 10px 0;
+    border: 2px solid rgb(127, 158, 158);
+}
+
+form input:hover {
+    border-color: rgb(101, 151, 151);
+}
+
+div:has(input:focus) > label {
+    background-color: grey;
+}
+
+form button {
+    margin: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(55, 54, 54);
+    color: white;
+    font-weight: 600;
+    border: none;
+}
+
+form button:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+form div.incorrect label {
+    background-color: #f06272;
+}
+
+form div.incorrect input {
+    border-color: #f06272;
+}
+
+#error-message {
+    color: #f06272;
+}
