@@ -46,6 +46,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 form {
     width: min(400px, 100%);
     margin-top: 20px;
@@ -88,8 +92,17 @@ form input:hover {
     border-color: rgb(101, 151, 151);
 }
 
+form input:focus {
+    outline: none;
+    border-color: black;
+}
+
 div:has(input:focus) > label {
     background-color: grey;
+}
+
+form input::placeholder {
+    color: black;
 }
 
 form button {
