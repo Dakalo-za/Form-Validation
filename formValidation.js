@@ -8,7 +8,7 @@ const error_message = document.getElementById('error-message')
 form.addEventListener('submit', (e) => {
     let errors = []
 
-    //create an array for detecting errors
+    
     
     if (firstname_input) {
         // if firstname input exists, then we in the signip page
