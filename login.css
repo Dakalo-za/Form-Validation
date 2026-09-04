@@ -107,6 +107,10 @@ form button:hover {
     cursor: pointer;
 }
 
+form button:focus {
+    outline: none
+}
+
 form div.incorrect label {
     background-color: #f06272;
 }
