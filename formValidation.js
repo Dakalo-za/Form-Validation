@@ -6,10 +6,11 @@ const repeat_password_input = document.getElementById('repeat-password-input');
 const error_message = document.getElementById('error-message')
 
 form.addEventListener('submit', (e) => {
+    let errors = []
 
     //create an array for detecting errors
-    let errors = []
-    if (firstName) {
+    
+    if (firstname_input) {
         // if firstname input exists, then we in the signip page
         errors.getSignupFormErrors(firstname_input.value, email_input.value, password_input.value, repeat_password_input.value);
     }
