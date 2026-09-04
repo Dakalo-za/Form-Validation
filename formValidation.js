@@ -11,15 +11,16 @@ form.addEventListener('submit', (e) => {
 
     if (firstname_input) {
         // if firstname input exists, then we in the signip page
-        errors.getSignupFormErrors(firstname_input.value, email_input.value, password_input.value, repeat_password_input.value);
+        errors = getSignupFormErrors(firstname_input.value, email_input.value, password_input.value, repeat_password_input.value);
     }
     else {
         //if it does not exist, we in the login page
-        errors.getLoginFormErrors(email_input.value, password_input.value);
+        errors = getLoginFormErrors(email_input.value, password_input.value);
     }
 
     // if errors exist
     if(errors.length > 0){
+        e.preventDefault()
         error_message.innerText = errors.join('. ')
     }
 });
@@ -39,17 +40,20 @@ function getSignupFormErrors(firstname, email, password, repeatPassword) {
     }
 
     if(password === '' || password === null){
-        errors.push("Passowrd is required")
+        errors.push("Password is required")
+        password_input.parentElement.classList.add('incorrect')
+    } else if (password.length < 8){
+        errors.push('Password must have at least 8 characters')
         password_input.parentElement.classList.add('incorrect')
     }
 
-    if(password < 8){
-        errors.push('Password must have atleast characters')
-        password_input.parentElement.classList.add('incorrect')
-    }
 
     // to check if repeated passed is the original password
-    if(password !== repeatPassword){
+    if (repeatPassword === ''){
+        errors.push('Please confirm password')
+        repeat_password_input.parentElement.classList.add('incorrect')
+    }
+    else if(password !== repeatPassword){
         errors.push('Password does not match')
         password_input.parentElement.classList.add('incorrect')
         repeat_password_input.parentElement.classList.add('incorrect')
@@ -79,7 +83,7 @@ function getLoginFormErrors(email, password){
 
 //create an all inputs array
 
-const allInputs = [firstname_input, email_input, password_input, repeat_password_input]
+const allInputs = [firstname_input, email_input, password_input, repeat_password_input].filter(input => input != null)
 allInputs.forEach(input => {
     input.addEventListener('input', () => {
         if(input.parentElement.classList.contains('incorrect')){
